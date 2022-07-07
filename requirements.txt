@@ -1,0 +1,4 @@
+# requests
+# gradio
+pymongo
+python-dotenv
