@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI
 from routes.testimonio import testimonio
-from database import client
+from config.database import conn
 
 app = FastAPI(title='NER API REST Cuando los pájaros no cantaban', description='Extracción de información \
      de las historias del conflicto armado en Colombia registradas en el Informe de la Comisión de la Verdad. \
@@ -10,11 +10,11 @@ app = FastAPI(title='NER API REST Cuando los pájaros no cantaban', description=
 
 @app.on_event('startup')
 def startup():
-    client.server_info
+    conn.server_info
 
 @app.on_event('shutdown')
 def shutdown():
-    client.close()
+    conn.close()
 
 app.include_router(testimonio)
 
