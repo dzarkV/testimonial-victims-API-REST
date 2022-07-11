@@ -1,4 +1,3 @@
-# requests
-# gradio
-pymongo
+pymongo[srv]
 python-dotenv
+fastapi
