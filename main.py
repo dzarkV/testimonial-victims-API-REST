@@ -5,8 +5,8 @@ from config.database import conn
 
 app = FastAPI(title='NER API REST Cuando los pájaros no cantaban', description='Extracción de información \
      de las historias del conflicto armado en Colombia registradas en el Informe de la Comisión de la Verdad. \
-     Inicialmente se trata de extracción de personas, lugares y palabras clave de los testimonios en el\
-     Libro de las Anticipaciones.', version='0.1')
+     Inicialmente se trata de extracción de personas, organizaciones, lugares y palabras clave de los \
+    testimonios en el Libro de las Anticipaciones.', version='0.1')
 
 @app.on_event('startup')
 def startup():

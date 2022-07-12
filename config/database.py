@@ -1,10 +1,11 @@
 import pymongo
-from dotenv import dotenv_values
+from dotenv import dotenv_values, find_dotenv
 
-config = dotenv_values(".env")
+path = find_dotenv()
+config = dotenv_values(dotenv_path=path)
 
 conn = pymongo.MongoClient(config['MONGO_CONNECTION_STRING'])
 # cliente.server_info() # validate connection string
-# db = cliente[config['DB_NAME']]
-# collection = db.get_collection(config['COLLECTION_NAME'])
+db = conn[config['DB_NAME']]
+collection = db.get_collection(config['COLLECTION_NAME'])
 

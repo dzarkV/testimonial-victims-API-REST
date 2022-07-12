@@ -6,5 +6,8 @@ def testimonioEntity(item)->dict:
         "personas": item["value"]["persona"],
         "organizaciones": item["value"]["organizacion"],
         "lugares": item["value"]["lugar"],
-        "palabras_clave": item["value"]["palabras_clave"]
+        "palabras_clave": item["value"]["palabra_clave"]
     }
+
+def testimoniosEntity(item)->list:
+    return [testimonioEntity(i) for i in item ]
