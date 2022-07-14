@@ -1,7 +1,7 @@
 
 from docs import tags_metadata
 from fastapi import FastAPI
-from routes import testimonio, persona
+from routes.testimonio import testimonio
 from config.database import conn
 from starlette.responses import RedirectResponse
 
@@ -21,7 +21,7 @@ def startup():
 def shutdown():
     conn.close()
 
-app.include_router(testimonio, persona)
+app.include_router(testimonio)
 
 # def read_document(collection, document_id):
 #     """Return the contents of the document containing document_id"""
