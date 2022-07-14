@@ -1,8 +1,9 @@
 
 from docs import tags_metadata
 from fastapi import FastAPI
-from routes.testimonio import testimonio
+from routes import testimonio, persona
 from config.database import conn
+from starlette.responses import RedirectResponse
 
 app = FastAPI(title='NER REST API Cuando los pájaros no cantaban', 
     description='Extracción de información de las historias del conflicto armado en \
@@ -20,7 +21,7 @@ def startup():
 def shutdown():
     conn.close()
 
-app.include_router(testimonio)
+app.include_router(testimonio, persona)
 
 # def read_document(collection, document_id):
 #     """Return the contents of the document containing document_id"""
@@ -28,11 +29,7 @@ app.include_router(testimonio)
 
 @app.get('/')
 async def index():
-      
-    try:
-        return "Connection succes"
-    except:
-        return "Error"
+    return RedirectResponse(url="/docs/")
     
     # read_document(collection, document_id)
     
