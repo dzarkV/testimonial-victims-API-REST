@@ -10,4 +10,5 @@ This is the Truth Comission's report with some testimonies of armed conflict's v
 * FastAPI REST API framework
 * Azure Cognitive Search for NER atributes
 
+You can see it deployed [here](http://testimoniesreport.azurewebsites.net/) 
 
