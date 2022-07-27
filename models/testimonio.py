@@ -6,6 +6,6 @@ class Testimonio(BaseModel):
     titulo: str
     texto: str
     personas: Optional[list]
-    organizaciones: list
+    organizaciones: Optional[list]
     lugares: list
     palabras_clave: list

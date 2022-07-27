@@ -10,11 +10,15 @@ testimonio = APIRouter()
 @testimonio.get('/testimonios', response_model=List[Testimonio],
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
 async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="Limite de testimonios"), 
-                                persons: bool = Query(True, description="Personas del testimonio"))->list:
+                                persons: bool = Query(True, description="Personas del testimonio"),
+                                organizations: bool = Query(True, description="Organizaciones del testimonio"))->list:
     
+    allTestimonies = testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id"))
     if persons == False:
-        return del_atribute(testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id")), 'personas')
-    return testimoniosEntity(collection.find({"id": { "$lte": limit } }).sort("id"))
+        del_atribute(allTestimonies, 'personas')
+    if organizations == False:
+        del_atribute(allTestimonies, 'organizaciones')
+    return allTestimonies
 
 # End point para testimonios según id, con parametro de path de id
 @testimonio.get('/testimonios/{id}', response_model=Union[Testimonio, str], tags=['testimonios'], 
@@ -23,9 +27,9 @@ async def find_testimonio(id: int = Path(..., gt=0, le=42))->dict:
     return testimonioEntity(collection.find_one({"id": id}))
 
 #Borra los atributos no requeridos de los testimonios
-def del_atribute(l:list, atributo:str)->list:
+def del_atribute(l:list, atribute:str)->list:
     for i in l:
-        del i[atributo]
+        del i[atribute]
     return l
     
     
