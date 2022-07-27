@@ -11,9 +11,9 @@ testimonio = APIRouter()
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
 async def find_all_testimonio(limit: int = Query(42, description="Limite de testimonios"), 
                                 persons: bool = Query(True, description="Personas del testimonio"))->list:
-    if limit:
-        if persons == False:
-            return del_atribute(testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id")), 'personas')
+    
+    if persons == False:
+        return del_atribute(testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id")), 'personas')
     return testimoniosEntity(collection.find({"id": { "$lte": limit } }).sort("id"))
 
 # End point para testimonios según id, con parametro de path de id
@@ -25,7 +25,7 @@ async def find_testimonio(id: int, response: Response)->dict:
         return f"No hay testimonio con el id {id}."
     return testimonioEntity(collection.find_one({"id": id}))
 
-#Borra los atributos no requeridos
+#Borra los atributos no requeridos de los testimonios
 def del_atribute(l:list, atributo:str)->list:
     for i in l:
         del i[atributo]
