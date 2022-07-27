@@ -11,13 +11,16 @@ testimonio = APIRouter()
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
 async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="Limite de testimonios"), 
                                 persons: bool = Query(True, description="Personas del testimonio"),
-                                organizations: bool = Query(True, description="Organizaciones del testimonio"))->list:
+                                organizations: bool = Query(True, description="Organizaciones del testimonio"),
+                                locations: bool = Query(True, description="Lugares del testimonio"))->list:
     
     allTestimonies = testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id"))
     if persons == False:
         del_atribute(allTestimonies, 'personas')
     if organizations == False:
         del_atribute(allTestimonies, 'organizaciones')
+    if locations == False:
+        del_atribute(allTestimonies, 'lugares')
     return allTestimonies
 
 # End point para testimonios según id, con parametro de path de id

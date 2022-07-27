@@ -7,5 +7,5 @@ class Testimonio(BaseModel):
     texto: str
     personas: Optional[list]
     organizaciones: Optional[list]
-    lugares: list
+    lugares: Optional[list]
     palabras_clave: list
