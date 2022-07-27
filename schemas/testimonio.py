@@ -1,8 +1,8 @@
 def testimonioEntity(item)->dict:
     return {
         "id": item["id"],
-        "title": item["value"]["name"],
-        "text": item["value"]["content"],
+        "titulo": item["value"]["name"],
+        "texto": item["value"]["content"],
         "personas": item["value"]["persona"],
         "organizaciones": item["value"]["organizacion"],
         "lugares": item["value"]["lugar"],
