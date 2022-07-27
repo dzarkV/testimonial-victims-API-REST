@@ -9,7 +9,7 @@ testimonio = APIRouter()
 # End point para todos los testimonios, con parametro de query de limite 
 @testimonio.get('/testimonios', response_model=List[Testimonio],
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
-async def find_all_testimonio(limit: int = Query(42, description="Limite de testimonios"), 
+async def find_all_testimonio(limit: int = Query(42, gt=0, lt=42, description="Limite de testimonios"), 
                                 persons: bool = Query(True, description="Personas del testimonio"))->list:
     
     if persons == False:
