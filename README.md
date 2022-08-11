@@ -12,3 +12,9 @@ This is the Truth Comission's report with some testimonies of armed conflict's v
 
 You can see it deployed [here](http://testimoniesreport.azurewebsites.net/) 
 
+---
+
+## Use
+
+Select a GET method, clic on <kbd>Try it out</kbd> and <kbd>Execute</kbd>!
+
