@@ -19,3 +19,11 @@ Select a GET method, clic on <kbd>Try it out</kbd> and <kbd>Execute</kbd>!
 
 You can consume it with Postman too, or with Power BI for analytics like [this](https://youtu.be/FuGZoRkRmyI?t=64).
 
+### With CLI
+
+Make sure you have `curl` and `jq` packages.
+
+```
+curl -X 'GET' 'http://testimoniesreport.azurewebsites.net/testimonios/5?persons=true&organizations=false&locations=true&keyWords=false' | jq .
+```
+
