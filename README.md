@@ -15,5 +15,7 @@ This is the Truth Comission's report with some testimonies of colombian armed co
 
 You can see it deployed in Azure Web [here](http://testimoniesreport.azurewebsites.net/). 
 
-Select a GET method, clic on <kbd>Try it out</kbd> and <kbd>Execute</kbd>!
+Select a GET method, clic on <kbd>Try it out</kbd> and <kbd>Execute</kbd>! 
+
+You can consume it with Postman too, or with Power BI for analytics like [this](https://youtu.be/FuGZoRkRmyI?t=64).
 
