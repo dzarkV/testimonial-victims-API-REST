@@ -29,8 +29,22 @@ async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="L
 # End point para testimonios según id, con parametro de path de id
 @testimonio.get('/testimonios/{id}', response_model=Union[Testimonio, str], tags=['testimonios'], 
                 description="Obtiene el testimonio según su identificador. Actualmente solo hay 42 testimonios.")
-async def find_testimonio(id: int = Path(..., gt=0, le=42))->dict:
-    return testimonioEntity(collection.find_one({"id": id}))
+async def find_testimonio(id: int = Path(..., gt=0, le=42),
+                            persons: bool = Query(True, description="Personas del testimonio"),
+                            organizations: bool = Query(True, description="Organizaciones del testimonio"),
+                            locations: bool = Query(True, description="Lugares del testimonio"),
+                            keyWords: bool = Query(True, description="Palabras clave del testimonio"))->dict:
+
+    selectedTestimony = testimonioEntity(collection.find_one({"id": id}))
+    if persons == False:
+        del selectedTestimony['personas']
+    if organizations == False:
+        del selectedTestimony['organizaciones']
+    if locations == False:
+        del selectedTestimony['lugares']
+    if keyWords == False:
+        del selectedTestimony['palabras_clave']
+    return selectedTestimony
 
 #Borra los atributos no requeridos de los testimonios
 def del_atribute(l:list, atribute:str)->list:
