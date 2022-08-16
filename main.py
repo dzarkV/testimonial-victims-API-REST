@@ -2,6 +2,7 @@
 from docs import tags_metadata
 from fastapi import FastAPI
 from routes.testimonio import testimonio
+from routes.lugar import lugar
 from config.database import conn
 from starlette.responses import RedirectResponse
 
@@ -22,10 +23,8 @@ def shutdown():
     conn.close()
 
 app.include_router(testimonio)
+app.include_router(lugar)
 
-# def read_document(collection, document_id):
-#     """Return the contents of the document containing document_id"""
-#     print("Found a document with _id {}: {}".format(document_id, collection.find_one({"id": document_id})))
 
 @app.get('/')
 async def index():
