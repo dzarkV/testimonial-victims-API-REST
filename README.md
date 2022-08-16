@@ -24,6 +24,6 @@ You can consume it with Postman too, or with Power BI for analytics like [this](
 Make sure you have `curl` and `jq` packages.
 
 ```
-curl -X 'GET' 'http://testimoniesreport.azurewebsites.net/testimonios/5?persons=true&organizations=false&locations=true&keyWords=false' | jq .
+curl -X 'GET' 'http://testimoniesreport.azurewebsites.net/testimonios/6?organizations=false&keyWords=false' | jq .
 ```
 
