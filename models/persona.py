@@ -1,5 +1,6 @@
 from pydantic import BaseModel
+from typing import Optional, List
 
 class Persona(BaseModel):
-    title: str
+    id: Optional[int]
     personas: list

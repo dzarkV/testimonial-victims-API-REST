@@ -3,6 +3,7 @@ from docs import tags_metadata
 from fastapi import FastAPI
 from routes.testimonio import testimonio
 from routes.lugar import lugar
+from routes.persona import persona
 from config.database import conn
 from starlette.responses import RedirectResponse
 
@@ -24,7 +25,7 @@ def shutdown():
 
 app.include_router(testimonio)
 app.include_router(lugar)
-
+app.include_router(persona)
 
 @app.get('/')
 async def index():

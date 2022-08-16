@@ -1,6 +1,6 @@
 def personaEntity(item)->dict:
     return {
-        "text": item["value"]["content"],
+        "id": item["id"],
         "personas": item["value"]["persona"],
     }
 

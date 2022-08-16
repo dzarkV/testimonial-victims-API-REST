@@ -4,4 +4,7 @@ tags_metadata = [{
 }, {
     "name": "lugares",
     "description": "Lugares de los testimonios del Libro de las anticipaciones"
+}, {
+    "name": "personas",
+    "description": "Personas de los testimonios del Libro de las anticipaciones"
 }]
