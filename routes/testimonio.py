@@ -7,7 +7,7 @@ from schemas.testimonio import testimonioEntity, testimoniosEntity
 testimonio = APIRouter()
 
 # End point para todos los testimonios, con parametro de query de limite 
-@testimonio.get('/testimonios', response_model=List[Testimonio],
+@testimonio.get('/testimonios', response_model=List[Testimonio], response_model_exclude_none=True,
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
 async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="Limite de testimonios"), 
                                 persons: bool = Query(True, description="Personas del testimonio"),
@@ -28,6 +28,7 @@ async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="L
 
 # End point para testimonios según id, con parametro de path de id
 @testimonio.get('/testimonios/{id}', response_model=Union[Testimonio, str], tags=['testimonios'], 
+                response_model_exclude_none=True,
                 description="Obtiene el testimonio según su identificador. Actualmente solo hay 42 testimonios.")
 async def find_testimonio(id: int = Path(..., gt=0, le=42),
                             persons: bool = Query(True, description="Personas del testimonio"),
