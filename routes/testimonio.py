@@ -6,15 +6,16 @@ from schemas.testimonio import testimonioEntity, testimoniosEntity
 
 testimonio = APIRouter()
 
-# End point para todos los testimonios, con parametro de query de limite 
+# End point para todos los testimonios, con parametro de query de limite y skip
 @testimonio.get('/testimonios', response_model=List[Testimonio], response_model_exclude_none=True,
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
-async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="Limite de testimonios"),
+async def find_all_testimonio(skip: int = Query(1, gt=0, le=42, description="Limite mínimo de testimonios"),
+                                limit: int = Query(42, gt=0, le=42, description="Limite máximo de testimonios"),
                                 allNER: bool = Query(False, description='Testimonios con todos los atributos NER'))->list:
     if allNER:
-        return testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id"))
+        return testimoniosEntity(collection.find({"id": { "$gte": skip, "$lte": limit }}).sort("id"))
     else:
-        return testimoniosEntity(collection.find({"id": { "$lte": limit }}, { "id": 1, "value.content": 1,
+        return testimoniosEntity(collection.find({"id": { "$gte": skip, "$lte": limit }}, { "id": 1, "value.content": 1,
                                                          "value.name": 1 }).sort("id"))
 
 # End point para testimonios según id, con parametro de path de id

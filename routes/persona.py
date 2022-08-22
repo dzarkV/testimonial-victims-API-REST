@@ -6,11 +6,12 @@ from schemas.persona import personasEntity
 
 persona = APIRouter()
 
-# End point para todas las personas, con parametro de query de limite 
+# End point para todas las personas, con parametro de query de limite y skip
 @persona.get('/personas', response_model=List[Persona], 
                 tags=['personas'], description="Obtiene las personas de los testimonios del Libro")
-async def find_all_people(limit: int = Query(42, gt=0, le=42, description="Limite de las personas en los testimonios"))->list:
-    allPeople = personasEntity(collection.find({"id": { "$lte": limit }}, { "id": 1, "value.persona": 1 }).sort("id"))
+async def find_all_people(skip: int = Query(1, gt=0, le=42, description="Limite mínimo de todas las personas"),
+                        limit: int = Query(42, gt=0, le=42, description="Limite máximo de las personas en los testimonios"))->list:
+    allPeople = personasEntity(collection.find({"id": { "$gte": skip, "$lte": limit }}, { "id": 1, "value.persona": 1 }).sort("id"))
     return allPeople
 
 # @persona.get('/testimonios/{id}', response_model=Persona, tags=['personas'], description="Obtiene el testimonio según su identificador. Actualmente solo hay 42 testimonios.")
