@@ -1,5 +1,5 @@
 def testimonioEntity(item)->dict:
-    if len(item["value"].keys()) > 2: # Check si las llaves de item[value] son más de dos para devolver query param allNER
+    if len(item["value"].keys()) > 2: # Check si las llaves de item[value] son más de dos para devolver query param all_ner
         return {
             "id": item["id"],
             "titulo": item["value"]["name"],

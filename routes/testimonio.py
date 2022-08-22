@@ -11,8 +11,8 @@ testimonio = APIRouter()
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
 async def find_all_testimonio(skip: int = Query(1, gt=0, le=42, description="Limite mínimo de testimonios"),
                                 limit: int = Query(42, gt=0, le=42, description="Limite máximo de testimonios"),
-                                allNER: bool = Query(False, description='Testimonios con todos los atributos NER'))->list:
-    if allNER:
+                                all_ner: bool = Query(False, description='Testimonios con todos los atributos NER'))->list:
+    if all_ner:
         return testimoniosEntity(collection.find({"id": { "$gte": skip, "$lte": limit }}).sort("id"))
     else:
         return testimoniosEntity(collection.find({"id": { "$gte": skip, "$lte": limit }}, { "id": 1, "value.content": 1,
