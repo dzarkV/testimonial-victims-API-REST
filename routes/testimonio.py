@@ -9,22 +9,13 @@ testimonio = APIRouter()
 # End point para todos los testimonios, con parametro de query de limite 
 @testimonio.get('/testimonios', response_model=List[Testimonio], response_model_exclude_none=True,
                  tags=['testimonios'], description="Obtiene los 42 testimonios del Libro de las anticipaciones.")
-async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="Limite de testimonios"), 
-                                persons: bool = Query(True, description="Personas del testimonio"),
-                                organizations: bool = Query(True, description="Organizaciones del testimonio"),
-                                locations: bool = Query(True, description="Lugares del testimonio"),
-                                keyWords: bool = Query(True, description="Palabras clave del testimonio"))->list:
-    
-    allTestimonies = testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id"))
-    if persons == False:
-        del_atribute(allTestimonies, 'personas')
-    if organizations == False:
-        del_atribute(allTestimonies, 'organizaciones')
-    if locations == False:
-        del_atribute(allTestimonies, 'lugares')
-    if keyWords == False:
-        del_atribute(allTestimonies, 'palabras_clave')
-    return allTestimonies
+async def find_all_testimonio(limit: int = Query(42, gt=0, le=42, description="Limite de testimonios"),
+                                allNER: bool = Query(False, description='Testimonios con todos los atributos NER'))->list:
+    if allNER:
+        return testimoniosEntity(collection.find({"id": { "$lte": limit }}).sort("id"))
+    else:
+        return testimoniosEntity(collection.find({"id": { "$lte": limit }}, { "id": 1, "value.content": 1,
+                                                         "value.name": 1 }).sort("id"))
 
 # End point para testimonios según id, con parametro de path de id
 @testimonio.get('/testimonios/{id}', response_model=Union[Testimonio, str], tags=['testimonios'], 
