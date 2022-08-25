@@ -2,3 +2,4 @@ pymongo[srv]
 python-dotenv
 fastapi[all]
 uvicorn
+meilisearch

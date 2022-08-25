@@ -7,4 +7,7 @@ tags_metadata = [{
 }, {
     "name": "personas",
     "description": "Personas de los testimonios del Libro de las anticipaciones"
+},{
+    "name": "buscar",
+    "description": "Buscar en el texto de los testimonios"
 }]

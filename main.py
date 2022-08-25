@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from routes.testimonio import testimonio
 from routes.lugar import lugar
 from routes.persona import persona
+from routes.search import search
 from config.database import conn
 from starlette.responses import RedirectResponse
 
@@ -26,6 +27,7 @@ def shutdown():
 app.include_router(testimonio)
 app.include_router(lugar)
 app.include_router(persona)
+app.include_router(search)
 
 @app.get('/')
 async def index():
