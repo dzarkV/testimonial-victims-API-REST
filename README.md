@@ -9,6 +9,7 @@ This is the Truth Comission's report with some testimonies of colombian armed co
 * Python language
 * FastAPI framework
 * Azure Cognitive Search for NER atributes (people, locations, organizations and key words)
+* Meilisearch for free text search
 * Azure Web Service and Git Actions for continuous deployment (CD)  
 
 ## Use
@@ -37,6 +38,11 @@ curl -X 'GET' \
 # Retrieve testimony with id 40 with NER atributes
 curl -X 'GET' \
   'http://testimoniesreport.azurewebsites.net/testimonios/40' \
+  -H 'accept: application/json' | jq 
+
+# Free text search in testimonies
+curl -X 'GET' \
+  'http://testimoniesreport.azurewebsites.net/search?q=paz' \
   -H 'accept: application/json' | jq 
 ```
 
