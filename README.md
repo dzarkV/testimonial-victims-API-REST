@@ -16,7 +16,7 @@ This is the Truth Comission's report with some testimonies of colombian armed co
 
 The components developed until now are as follow:
 
-<img src="https://github.com/dzarkV/testimonial-victims-API-REST/blob/main/pic/victims-testimonies-flow..png" width=45% height=45%>
+<img src="https://github.com/dzarkV/testimonial-victims-API-REST/blob/main/pic/victims-testimonies-flow.png" width=45% height=45%>
 
 ## Use
 
