@@ -12,6 +12,12 @@ This is the Truth Comission's report with some testimonies of colombian armed co
 * Meilisearch for free text search
 * Azure Web Service and Git Actions for continuous deployment (CD)  
 
+## Flow
+
+The components developed until now are as follow:
+
+<img src="https://github.com/dzarkV/testimonial-victims-API-REST/blob/main/pic/victims-testimonies-flow..png" width=45% height=45%>
+
 ## Use
 
 You can see it deployed in Azure Web [here](http://testimoniesreport.azurewebsites.net/). 
