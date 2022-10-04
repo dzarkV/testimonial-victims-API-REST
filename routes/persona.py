@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Query
 from models.persona import Persona
 from typing import List
 from config.database import collection
