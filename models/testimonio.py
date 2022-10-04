@@ -1,6 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel
 
+
 class Testimonio(BaseModel):
     id: Optional[int]
     titulo: str

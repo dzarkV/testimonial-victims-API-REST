@@ -3,9 +3,8 @@ from dotenv import load_dotenv
 from os import getenv
 
 load_dotenv()
-config = getenv('MONGO_CONNECTION_STRING')
+config = getenv("MONGO_CONNECTION_STRING")
 conn = pymongo.MongoClient(config)
 
-db = conn[getenv('DB_NAME')]
-collection = db.get_collection(getenv('COLLECTION_NAME'))
-
+db = conn[getenv("DB_NAME")]
+collection = db.get_collection(getenv("COLLECTION_NAME"))
