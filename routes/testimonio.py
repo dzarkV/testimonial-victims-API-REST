@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Response, Query, Path
+from fastapi import APIRouter, Query, Path
 from models.testimonio import Testimonio
 from typing import List, Union
 from config.database import collection

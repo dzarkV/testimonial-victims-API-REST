@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Response, Query, Path
+from fastapi import APIRouter, Query
 from models.lugar import Lugar
-from typing import List, Union
+from typing import List
 from config.database import collection
 from schemas.lugar import lugaresEntity 
 

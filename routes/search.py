@@ -1,5 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query, Path
-from typing import List, Union
+from fastapi import APIRouter, HTTPException, Query
 from config.meilisch import index_search
 
 search = APIRouter()
