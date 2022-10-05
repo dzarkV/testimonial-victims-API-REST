@@ -8,4 +8,4 @@ lint:
 	pylint --disable=R,C ./*/*.py
 
 tests: 
-	python3 -m pytest -vv -cov=
+	python3 -m pytest -vv -cov=./schemas/*py unit_tests.py
