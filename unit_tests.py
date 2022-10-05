@@ -1,6 +1,6 @@
 from schemas.lugar import lugaresEntity
 from schemas.persona import personasEntity
-from routes.search import search_by_text
+# from routes.search import search_by_text
 
 
 class TestClass():
