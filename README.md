@@ -1,3 +1,5 @@
+[![Build and deploy Python app to Azure Web App - testimoniesreport](https://github.com/dzarkV/testimonial-victims-API-REST/actions/workflows/az-deploy_testimoniesreport.yml/badge.svg)](https://github.com/dzarkV/testimonial-victims-API-REST/actions/workflows/az-deploy_testimoniesreport.yml)
+
 # Testimonial victims API-REST
 
 REST API with NER atributes of victim's testimonies from Cuando los pájaros no cantaban. 
