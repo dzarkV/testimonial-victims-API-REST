@@ -44,10 +44,10 @@ class TestClass():
                 "persona": ["Daniel", "María Sanabria"]}}])
         assert (resultTest == testOkPersonas)
 
-    async def test_routes_search(self):
-        testOkSearch2 = {"detail": {
-                            "message": "word not found in testimonies",
-                            "query": "00000000"}
-                        }
-        resultTest2 = await search_by_text(q="00000000")
-        assert (resultTest2 == testOkSearch2)
+#     async def test_routes_search(self):
+#         testOkSearch2 = {"detail": {
+#                             "message": "word not found in testimonies",
+#                             "query": "00000000"}
+#                         }
+#         resultTest2 = await search_by_text(q="00000000")
+#         assert (resultTest2 == testOkSearch2)

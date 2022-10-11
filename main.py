@@ -18,7 +18,8 @@ app = FastAPI(title='NER REST API Cuando los pájaros no cantaban',
 
 @app.on_event('startup')
 def startup():
-    conn.server_info
+    pass
+    # conn.server_info
 
 @app.on_event('shutdown')
 def shutdown():
