@@ -29,6 +29,9 @@ jobs:
       
       - name: Install dependencies
         run: make install
+
+      - name: Run lint test
+        run: make lint
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Testing files

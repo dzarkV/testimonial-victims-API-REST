@@ -8,8 +8,7 @@ def testimonioEntity(item) -> dict:
             "texto": item["value"]["content"],
             "personas": item["value"]["persona"],
             "organizaciones": item["value"]["organizacion"],
-            "lugares": item["value"]["lugar"],
-            "palabras_clave": item["value"]["palabra_clave"],
+            "lugares": item["value"]["lugar"]
         }
     else:
         return {
