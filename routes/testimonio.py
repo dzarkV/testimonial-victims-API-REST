@@ -44,8 +44,7 @@ async def find_testimonio(
     id: int = Path(..., gt=0, le=42),
     persons: bool = Query(True, description="Personas del testimonio"),
     organizations: bool = Query(True, description="Organizaciones del testimonio"),
-    locations: bool = Query(True, description="Lugares del testimonio"),
-    keyWords: bool = Query(True, description="Palabras clave del testimonio"),
+    locations: bool = Query(True, description="Lugares del testimonio")
 ) -> dict:
 
     selectedTestimony = testimonioEntity(collection.find_one({"id": id}))
@@ -55,8 +54,6 @@ async def find_testimonio(
         del selectedTestimony["organizaciones"]
     if locations == False:
         del selectedTestimony["lugares"]
-    if keyWords == False:
-        del selectedTestimony["palabras_clave"]
     return selectedTestimony
 
 
