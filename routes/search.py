@@ -11,7 +11,8 @@ search = APIRouter()
 )
 async def search_by_text(
     q: str = Query(
-        ..., description="Ingrese la palabra que desea buscar en los testimonios"
+        ..., description="Ingrese la palabra que desea buscar en los testimonios",
+        example='FARC'
     )
 ) -> dict:
     result = index_search.search(q)

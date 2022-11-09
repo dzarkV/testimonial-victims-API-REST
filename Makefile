@@ -7,5 +7,5 @@ format:
 lint:
 	pylint --disable=R,C,W0622 *.py **/*.py
 
-tests: 
+tests:
 	python3 -m pytest -vv unit_tests.py

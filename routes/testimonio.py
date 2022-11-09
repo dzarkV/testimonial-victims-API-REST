@@ -41,7 +41,7 @@ async def find_all_testimonio(
     description="Obtiene el testimonio según su identificador. Actualmente solo hay 42 testimonios.",
 )
 async def find_testimonio(
-    id: int = Path(..., gt=0, le=42),
+    id: int = Path(..., gt=0, le=42, example=27),
     persons: bool = Query(True, description="Personas del testimonio"),
     organizations: bool = Query(True, description="Organizaciones del testimonio"),
     locations: bool = Query(True, description="Lugares del testimonio")
